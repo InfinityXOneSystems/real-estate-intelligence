@@ -33,3 +33,7 @@ def categories(req: dict):
     with open("config/crawl_categories.json","w") as f:
         json.dump(req, f, indent=2)
     return {"ok": True}
+@app.get("/health")
+def health(): return {"status":"ok"}
+@app.get("/ready")
+def ready(): return {"ready":True}
