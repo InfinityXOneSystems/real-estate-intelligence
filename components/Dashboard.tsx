@@ -17,9 +17,17 @@ const Dashboard: React.FC<DashboardProps> = ({ leads, onSelectLead }) => {
     '3': { price: '$650,000', days: '1 DAY LEFT' }
   };
 
+  const getButtonText = (id: string) => {
+    switch (id) {
+      case '1': return "SELL FAST AND SAFE";
+      case '3': return "MAXIMUM COMMITMENT";
+      default: return "INTELLIGENT TRANSPARENCY";
+    }
+  };
+
   return (
     <div className="min-h-screen bg-[#030303] pb-24 animate-in fade-in duration-1000">
-      {/* Hero Section - Added pb-40 to push content up away from the overlapping stats cards */}
+      {/* Hero Section */}
       <section className="relative min-h-[85vh] w-full overflow-hidden flex flex-col justify-center pb-40">
         <img 
           src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=80&w=2000" 
@@ -30,7 +38,6 @@ const Dashboard: React.FC<DashboardProps> = ({ leads, onSelectLead }) => {
         <div className="absolute inset-0 hero-gradient" />
         
         <div className="relative z-10 w-full px-6 sm:px-12 max-w-[1600px] mx-auto flex flex-col items-start pt-20">
-          {/* Main Heading */}
           <h1 className="text-6xl sm:text-7xl lg:text-8xl font-medium tracking-tighter mb-8 leading-[0.9] text-white uppercase animate-in slide-in-from-top-12 duration-1000">
             REAL ESTATE<br/>
             <span className="text-gradient-gold">IQ 360</span>
@@ -43,7 +50,7 @@ const Dashboard: React.FC<DashboardProps> = ({ leads, onSelectLead }) => {
             
             <p className="text-xl sm:text-3xl font-medium tracking-tight text-white/95 max-w-3xl leading-tight italic border-l-4 border-[#D4AF37] pl-6">
               Maximize Value Intelligently.<br/>
-              <span className="text-white font-medium">Even Distributed Wealth</span>
+              <span className="text-white font-medium">Balanced Wealth for All</span>
             </p>
             <p className="text-sm sm:text-lg font-medium text-white/80 mt-4 block italic pl-6">
               Your intelligent guide to fast closing with AI on your side.
@@ -67,14 +74,14 @@ const Dashboard: React.FC<DashboardProps> = ({ leads, onSelectLead }) => {
         </div>
       </section>
 
-      {/* Stats Bar - Kept overlap but hero content is now pushed up */}
+      {/* Stats Bar */}
       <div className="max-w-[1600px] mx-auto px-6 sm:px-12 -mt-16 relative z-20">
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
           {[
-            { label: 'Sellers protection', value: 'High Wealth', icon: ShieldCheck },
-            { label: 'Investor opportunities', value: '$840M', icon: Scale },
+            { label: 'Seller Protection', value: 'Guaranteed', icon: ShieldCheck },
+            { label: 'Investor Access', value: '$840M', icon: Scale },
             { label: 'Trust Guarantee', value: 'Verified', icon: Globe },
-            { label: 'Value Optimization', value: 'Maximized', icon: Activity },
+            { label: 'Value Optimized', value: '100%', icon: Activity },
           ].map((stat, i) => (
             <div key={i} className="glass p-6 rounded-3xl border-[#D4AF37]/10 group transition-all hover:border-[#D4AF37]/40 shadow-xl backdrop-blur-xl bg-black/60">
               <div className="flex justify-between items-start mb-4">
@@ -89,7 +96,7 @@ const Dashboard: React.FC<DashboardProps> = ({ leads, onSelectLead }) => {
         </div>
       </div>
 
-      {/* Opportunity Grid - Increased margin top to mt-32 to move cards down */}
+      {/* Opportunity Grid */}
       <section className="max-w-[1600px] mx-auto px-6 sm:px-12 mt-32 space-y-12">
         <div className="flex flex-col sm:flex-row sm:items-end justify-between border-b border-white/10 pb-8">
           <div>
@@ -98,18 +105,15 @@ const Dashboard: React.FC<DashboardProps> = ({ leads, onSelectLead }) => {
               <span className="text-gradient-gold">ON VALUE</span>
             </h3>
             <p className="text-white/60 text-sm sm:text-base font-bold mt-4 uppercase tracking-[0.2em]">
-              intelligent systems designed to guide you
+              intelligent systems designed to serve you
             </p>
           </div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {leads.map((lead) => {
-            const buttonText = lead.id === '1' 
-              ? "SELL FAST AND SAFE" 
-              : "Intelligent Transparency";
-            
             const priceData = priceDisplayMap[lead.id] || { price: '$0', days: 'PENDING' };
+            const buttonText = getButtonText(lead.id);
 
             return (
               <div 
@@ -123,19 +127,14 @@ const Dashboard: React.FC<DashboardProps> = ({ leads, onSelectLead }) => {
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-[1.5s]"
                     alt="Property"
                   />
-                  <div className="absolute top-4 left-4">
-                    <div className="glass px-3 py-1.5 rounded-full border-[#D4AF37]/30 flex items-center gap-2">
-                      <div className="w-1.5 h-1.5 rounded-full bg-[#D4AF37] animate-pulse" />
-                      <span className="text-[9px] font-bold text-white mono uppercase tracking-widest">SCORE {lead.nexusScore}</span>
-                    </div>
-                  </div>
+                  {/* Score removed as requested */}
                 </div>
 
                 <div className="p-6 sm:p-8 flex-1 flex flex-col justify-between">
                   <div className="flex items-start justify-between mb-6">
                     <div className="flex-1 min-w-0 pr-4">
                       <p className="text-white/50 text-[9px] font-bold uppercase tracking-[0.2em]">
-                        {lead.id === '1' ? 'Disposition Protocol' : 'Acquisition Protocol'}
+                        {lead.id === '1' ? 'Seller Protection' : 'Fair Opportunity'}
                       </p>
                     </div>
                     <div className="text-right flex-shrink-0 flex flex-col items-end gap-2">
@@ -155,6 +154,47 @@ const Dashboard: React.FC<DashboardProps> = ({ leads, onSelectLead }) => {
               </div>
             );
           })}
+        </div>
+      </section>
+
+      {/* Company Commitment Section */}
+      <section className="max-w-[1600px] mx-auto px-6 sm:px-12 mt-32 mb-12">
+        <div className="bg-[#050505] border border-[#D4AF37]/20 rounded-[3rem] p-8 sm:p-12 flex flex-col md:flex-row items-center gap-12 relative overflow-hidden group hover:border-[#D4AF37]/40 transition-all duration-700">
+            {/* Background effects */}
+            <div className="absolute top-0 right-0 w-full h-full bg-gradient-to-bl from-[#D4AF37]/5 to-transparent pointer-events-none" />
+            
+            <div className="w-full md:w-1/2 relative z-10">
+                <img 
+                    src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=800" 
+                    className="w-full aspect-[4/3] object-cover rounded-2xl grayscale-[50%] group-hover:grayscale-0 transition-all duration-700 shadow-2xl border border-white/5" 
+                    alt="Our Commitment" 
+                />
+            </div>
+            
+            <div className="w-full md:w-1/2 relative z-10 space-y-8">
+                <div>
+                  <h3 className="text-3xl sm:text-5xl font-black tracking-tighter text-white uppercase leading-[0.9] mb-4">
+                      Our <br/>
+                      <span className="text-gradient-gold">Commitment</span>
+                  </h3>
+                  <div className="w-20 h-1 bg-gradient-to-r from-[#D4AF37] to-transparent" />
+                </div>
+                
+                <p className="text-zinc-400 font-medium leading-relaxed text-sm sm:text-base max-w-xl">
+                    We are dedicated to providing excellent customer service and fostering balanced wealth. Our intelligence system ensures your real estate journey is secure, transparent, and value optimized 100%, giving you peace of mind every step of the way.
+                    <br/><br/>
+                    <span className="text-white font-bold tracking-wide">Security. Balance. Service.</span>
+                    <br/><br/>
+                    We are here to protect your interests with intelligent care.
+                </p>
+                
+                <div className="flex items-center gap-4">
+                  <div className="h-10 w-10 rounded-full bg-[#D4AF37]/10 flex items-center justify-center border border-[#D4AF37]/30">
+                    <ShieldCheck size={18} className="text-[#D4AF37]" />
+                  </div>
+                  <div className="text-[10px] uppercase tracking-widest font-bold text-white/60">Verified & Secure</div>
+                </div>
+            </div>
         </div>
       </section>
     </div>

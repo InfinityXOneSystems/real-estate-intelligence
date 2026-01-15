@@ -1,6 +1,6 @@
 {
   "name": "Real Estate IQ 360",
-  "description": "An elite autonomous intelligence system for high-yield real estate acquisitions, featuring multimodal vision analysis, deep financial modeling, and real-time AI negotiation agents.",
+  "description": "An intelligent system for real estate acquisitions, featuring multimodal vision analysis, deep financial modeling, and real-time AI negotiation agents.",
   "requestFramePermissions": [
     "camera",
     "microphone",

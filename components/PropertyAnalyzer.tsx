@@ -41,9 +41,9 @@ const PropertyAnalyzer: React.FC = () => {
             <div className="p-2 bg-[#D4AF37]/10 rounded-lg">
               <Camera size={20} className="text-[#D4AF37]" />
             </div>
-            <span className="text-[10px] font-bold text-white uppercase tracking-[0.4em] mono">Sell Vision Core</span>
+            <span className="text-[10px] font-bold text-white uppercase tracking-[0.4em] mono">Vision Analysis</span>
           </div>
-          <h2 className="text-4xl sm:text-7xl font-black tracking-tighter leading-none uppercase text-white">Strategic <span className="text-gradient-gold">Scan</span></h2>
+          <h2 className="text-4xl sm:text-7xl font-black tracking-tighter leading-none uppercase text-white">Property <span className="text-gradient-gold">Analysis</span></h2>
         </div>
         
         <div className="flex flex-col sm:flex-row gap-4">
@@ -51,7 +51,7 @@ const PropertyAnalyzer: React.FC = () => {
             <MapPin className="absolute left-4 top-1/2 -translate-y-1/2 text-white/50 group-focus-within:text-[#D4AF37] transition-colors" size={16} />
             <input
               type="text"
-              placeholder="Sell Address..."
+              placeholder="Enter Address..."
               className="bg-black border border-[#D4AF37]/20 rounded-xl pl-10 pr-6 py-4 text-sm w-full sm:w-80 focus:border-[#D4AF37] outline-none transition-all font-semibold text-white placeholder:text-white/30"
               value={address}
               onChange={(e) => setAddress(e.target.value)}
@@ -62,7 +62,7 @@ const PropertyAnalyzer: React.FC = () => {
             className="glass-btn text-white px-8 py-4 rounded-xl font-bold flex items-center justify-center gap-2 active:scale-95"
           >
             <LayoutGrid size={18} className="text-[#D4AF37]" />
-            <span className="uppercase tracking-widest text-xs">Upload Data</span>
+            <span className="uppercase tracking-widest text-xs">Upload Photo</span>
           </button>
           <input type="file" ref={fileInputRef} className="hidden" accept="image/*" onChange={handleFileUpload} />
         </div>
@@ -83,7 +83,7 @@ const PropertyAnalyzer: React.FC = () => {
           
           <div className="relative z-10 flex flex-col items-center px-6 text-center">
             <h3 className="text-3xl sm:text-4xl font-black tracking-tighter mb-4 text-white">
-              {image ? 'PROTOCOL STANDBY' : 'ACQUISITION DATA REQUIRED'}
+              {image ? 'READY TO ANALYZE' : 'PROPERTY PHOTO REQUIRED'}
             </h3>
             <button 
               disabled={!image || !address}
@@ -91,7 +91,7 @@ const PropertyAnalyzer: React.FC = () => {
               className="w-full sm:w-auto glass-btn py-5 px-16 rounded-2xl transition-all flex items-center justify-center gap-4 disabled:opacity-30 disabled:cursor-not-allowed group"
             >
               {analyzing ? <Loader2 className="animate-spin text-[#D4AF37]" size={22} /> : <Target size={22} className="text-[#D4AF37] group-hover:scale-110 transition-transform" />}
-              <span className="text-white font-bold text-lg tracking-tight">EXECUTE ELITE ANALYSIS</span>
+              <span className="text-white font-bold text-lg tracking-tight">START ANALYSIS</span>
             </button>
           </div>
         </div>
@@ -103,8 +103,8 @@ const PropertyAnalyzer: React.FC = () => {
           <div className="relative flex flex-col items-center gap-8">
             <div className="w-20 h-20 border-t-2 border-[#D4AF37] rounded-full animate-spin shadow-[0_0_30px_rgba(212,175,55,0.4)]" />
             <div className="text-center">
-              <p className="text-3xl font-black tracking-tighter italic text-gradient-gold">INGESTING INTELLIGENCE</p>
-              <p className="text-white mono font-bold tracking-[0.4em] uppercase mt-4 animate-pulse text-xs">Vision Scraper Active</p>
+              <p className="text-3xl font-black tracking-tighter italic text-gradient-gold">PROCESSING DATA</p>
+              <p className="text-white mono font-bold tracking-[0.4em] uppercase mt-4 animate-pulse text-xs">Analysis in Progress</p>
             </div>
           </div>
         </div>
@@ -119,14 +119,14 @@ const PropertyAnalyzer: React.FC = () => {
                 <div className="absolute top-6 left-6">
                   <div className="glass px-4 py-2 rounded-xl border-[#D4AF37]/50 flex items-center gap-3">
                     <div className="w-2 h-2 rounded-full bg-[#D4AF37] animate-pulse" />
-                    <span className="text-[11px] font-bold text-white mono uppercase tracking-[0.2em]">Sell Identified</span>
+                    <span className="text-[11px] font-bold text-white mono uppercase tracking-[0.2em]">Property Identified</span>
                   </div>
                 </div>
               </div>
               <div className="p-8 sm:p-12">
                 <h3 className="text-3xl font-extrabold tracking-tight mb-8 flex items-center gap-3 text-white">
                   <Thermometer className="text-[#D4AF37]" size={24} />
-                  Intelligence <span className="text-gradient-gold">Markers</span>
+                  Condition <span className="text-gradient-gold">Markers</span>
                 </h3>
                 <div className="flex flex-wrap gap-3">
                   {result.distressMarkers.map((m: string) => (
@@ -139,7 +139,7 @@ const PropertyAnalyzer: React.FC = () => {
             </div>
 
             <div className="glass border-[#D4AF37]/30 rounded-[3rem] p-8 sm:p-12 bg-black/80">
-              <h3 className="text-white font-black uppercase mono text-[11px] tracking-[0.6em] mb-6">Strategic Recommendation</h3>
+              <h3 className="text-white font-black uppercase mono text-[11px] tracking-[0.6em] mb-6">Recommendation</h3>
               <p className="text-4xl sm:text-6xl font-black tracking-tighter mb-8 leading-none uppercase text-gradient-gold">{result.acquisitionStrategy}</p>
             </div>
           </div>
@@ -148,20 +148,20 @@ const PropertyAnalyzer: React.FC = () => {
             <div className="flex-1 bg-black border border-[#D4AF37]/20 rounded-[3rem] p-8 sm:p-12 flex flex-col shadow-2xl">
               <h3 className="text-white font-black uppercase mono text-[11px] tracking-[0.6em] mb-8 flex items-center gap-3">
                 <Search size={18} className="text-[#D4AF37]" />
-                Alpha Analysis Report
+                Analysis Report
               </h3>
               <div className="flex-1 max-h-[400px] overflow-y-auto pr-4 mb-10 custom-scrollbar">
                 <p className="text-white leading-relaxed font-medium text-lg whitespace-pre-wrap">{result.market.text}</p>
               </div>
               
               <div className="pt-8 border-t border-white/5">
-                <h4 className="text-[11px] text-white uppercase font-black tracking-[0.4em] mb-6">Market Alpha Grounds</h4>
+                <h4 className="text-[11px] text-white uppercase font-black tracking-[0.4em] mb-6">Market Data Sources</h4>
                 <div className="space-y-3">
                   {result.market.sources.map((s: any, idx: number) => (
                     <a key={idx} href={s.web?.uri || s.maps?.uri} target="_blank" className="flex items-center justify-between p-4 bg-white/5 rounded-2xl border border-white/5 hover:border-[#D4AF37]/30 transition-all group">
                       <div className="flex items-center gap-3 min-w-0">
                         <Globe size={16} className="text-[#D4AF37] flex-shrink-0" />
-                        <span className="text-sm font-bold tracking-tight text-white group-hover:text-white truncate">{s.web?.title || s.maps?.title || 'Intelligence Data'}</span>
+                        <span className="text-sm font-bold tracking-tight text-white group-hover:text-white truncate">{s.web?.title || s.maps?.title || 'External Data'}</span>
                       </div>
                       <ArrowRight size={14} className="text-white group-hover:text-[#D4AF37] transition-all" />
                     </a>
@@ -172,7 +172,7 @@ const PropertyAnalyzer: React.FC = () => {
 
             <button className="w-full glass-btn py-7 rounded-[2rem] flex items-center justify-center gap-4 text-xl font-black tracking-tighter hover:active-highlight group">
               <ShieldCheck size={28} className="text-[#D4AF37] group-hover:scale-110 transition-transform" />
-              <span className="text-white uppercase tracking-widest">WE WILL EARN YOU MORE</span>
+              <span className="text-white uppercase tracking-widest">MAXIMIZE YOUR VALUE</span>
             </button>
           </div>
         </div>

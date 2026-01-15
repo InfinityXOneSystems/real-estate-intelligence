@@ -31,8 +31,8 @@ export interface PropertyLead {
 }
 
 export enum AgentMode {
-  ATLAS = 'ATLAS', // Lead Sniper - Numbers/IRR
-  SOL = 'SOL'     // Echo - EQ/Rapport
+  ATLAS = 'ATLAS', // Strategic Architect
+  SOL = 'SOL'     // Echo - Executive Assistant & Voice
 }
 
 export interface GroundingSource {

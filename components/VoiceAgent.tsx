@@ -3,14 +3,14 @@ import React, { useState, useRef, useEffect } from 'react';
 import { AgentMode } from '../types';
 import { AGENT_CONFIGS, getGeminiInstance } from '../geminiService';
 import { encode, decode, decodeAudioData } from '../utils';
-import { Mic, MicOff, Volume2, ShieldCheck, Zap, Activity, Crown, Target } from 'lucide-react';
+import { Mic, MicOff, Volume2, ShieldCheck, Zap, Activity, Crown, Target, HeartHandshake, Sparkles } from 'lucide-react';
 import { LiveServerMessage, Modality } from '@google/genai';
 
 const VoiceAgent: React.FC = () => {
   const [activeMode, setActiveMode] = useState<AgentMode>(AgentMode.SOL);
   const [isConnected, setIsConnected] = useState(false);
   const [isRecording, setIsRecording] = useState(false);
-  const [status, setStatus] = useState('Standby');
+  const [status, setStatus] = useState('System Link Ready');
   const [transcripts, setTranscripts] = useState<string[]>([]);
   
   const inputAudioContextRef = useRef<AudioContext | null>(null);
@@ -24,12 +24,12 @@ const VoiceAgent: React.FC = () => {
       sessionRef.current?.close();
       setIsConnected(false);
       setIsRecording(false);
-      setStatus('Strategic Reset');
+      setStatus('Link Severed');
       return;
     }
 
     try {
-      setStatus('Initializing Negotiation Hub...');
+      setStatus('Initializing Quantum Handshake...');
       const ai = getGeminiInstance();
       
       inputAudioContextRef.current = new (window.AudioContext || (window as any).webkitAudioContext)({ sampleRate: 16000 });
@@ -44,7 +44,7 @@ const VoiceAgent: React.FC = () => {
           onopen: () => {
             setIsConnected(true);
             setIsRecording(true);
-            setStatus(`Turn: ${config.name} Optimized`);
+            setStatus(`${config.name} Online`);
             
             const source = inputAudioContextRef.current!.createMediaStreamSource(stream);
             const scriptProcessor = inputAudioContextRef.current!.createScriptProcessor(4096, 1, 1);
@@ -98,12 +98,12 @@ const VoiceAgent: React.FC = () => {
               setTranscripts(prev => [...prev.slice(-4), `User: ${message.serverContent?.inputTranscription?.text}`]);
             }
           },
-          onerror: (e) => setStatus(`Nexus Error: ${e}`),
+          onerror: (e) => setStatus(`System Error: ${e}`),
           onclose: () => setIsConnected(false)
         },
         config: {
           responseModalities: [Modality.AUDIO],
-          systemInstruction: config.instruction.replace('sovereign', 'strategic elite'),
+          systemInstruction: config.instruction,
           speechConfig: {
             voiceConfig: { prebuiltVoiceConfig: { voiceName: config.voice as any } }
           },
@@ -115,7 +115,7 @@ const VoiceAgent: React.FC = () => {
       sessionRef.current = await sessionPromise;
     } catch (err) {
       console.error(err);
-      setStatus('Access Perm Error');
+      setStatus('Connection Failed');
     }
   };
 
@@ -124,8 +124,11 @@ const VoiceAgent: React.FC = () => {
       <header className="text-center">
         <div className="flex items-center justify-center gap-4 mb-6">
           <Crown size={28} className="text-[#D4AF37]" />
-          <h2 className="text-4xl sm:text-5xl font-black tracking-tighter text-white">Negotiation <span className="text-gradient-gold">Core</span></h2>
+          <h2 className="text-4xl sm:text-5xl font-black tracking-tighter text-white">Quantum <span className="text-gradient-gold">Link</span></h2>
         </div>
+        <p className="text-white/60 text-sm font-medium tracking-wide max-w-xl mx-auto uppercase">
+          IQ 360 Intelligence Node Active
+        </p>
       </header>
 
       <div className="grid grid-cols-2 gap-6">
@@ -136,15 +139,21 @@ const VoiceAgent: React.FC = () => {
             onClick={() => setActiveMode(mode)}
             className={`p-8 rounded-[2rem] border-2 transition-all duration-500 flex flex-col items-center gap-4 group ${
               activeMode === mode 
-                ? 'active-highlight text-[#D4AF37]' 
+                ? 'active-highlight text-[#D4AF37] shadow-[0_0_40px_rgba(212,175,55,0.1)]' 
                 : 'bg-black border-white/10 text-white/50 opacity-60 hover:opacity-100 hover:border-[#D4AF37]/40'
             }`}
           >
-            {mode === AgentMode.SOL ? <Activity size={40} className="group-hover:scale-110 transition-transform" /> : <Target size={40} className="group-hover:scale-110 transition-transform" />}
+            {mode === AgentMode.SOL ? (
+              <Sparkles size={40} className="group-hover:scale-110 transition-transform text-[#D4AF37]" />
+            ) : (
+              <Target size={40} className="group-hover:scale-110 transition-transform" />
+            )}
             <div className="text-center">
-              <div className={`font-black text-xl tracking-tight ${activeMode === mode ? 'text-white' : 'text-white/80'}`}>{AGENT_CONFIGS[mode].name} Protocol</div>
+              <div className={`font-black text-xl tracking-tight ${activeMode === mode ? 'text-white' : 'text-white/80'}`}>
+                {AGENT_CONFIGS[mode].name}
+              </div>
               <div className="text-[10px] uppercase tracking-[0.3em] mono font-bold mt-1 text-white">
-                {mode === AgentMode.SOL ? 'Rapport Architect' : 'Value Maximizer'}
+                {mode === AgentMode.SOL ? 'Executive Assistant' : 'Strategic Architect'}
               </div>
             </div>
           </button>
@@ -186,14 +195,19 @@ const VoiceAgent: React.FC = () => {
             <div className={`text-2xl font-black mono tracking-tighter uppercase ${isConnected ? 'text-gradient-gold' : 'text-white/40'}`}>
               {status}
             </div>
+            {isConnected && (
+                <p className="text-white/40 text-xs tracking-widest uppercase animate-pulse">
+                   {activeMode === AgentMode.SOL ? 'Echo Listening...' : 'Atlas Analyzing...'}
+                </p>
+            )}
           </div>
         </div>
       </div>
 
       <div className="bg-black border border-white/10 rounded-3xl p-8 min-h-[250px] flex flex-col justify-end gap-4 font-mono text-sm shadow-xl">
         <h4 className="text-white uppercase tracking-[0.4em] mb-4 border-b border-white/5 pb-4 flex justify-between font-black text-xs">
-          <span>Communication Feed</span>
-          <span className="text-[#D4AF37]">Link</span>
+          <span>Neural Feed</span>
+          <span className="text-[#D4AF37]">Live</span>
         </h4>
         {transcripts.map((t, i) => (
           <div key={i} className={`p-4 rounded-2xl ${t.startsWith('AI') ? 'text-[#D4AF37] bg-[#D4AF37]/5 border border-[#D4AF37]/10' : 'text-white bg-white/5'}`}>
