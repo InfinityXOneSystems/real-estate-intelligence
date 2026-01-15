@@ -78,13 +78,13 @@ const Dashboard: React.FC<DashboardProps> = ({ leads, onSelectLead }) => {
           {[
             { label: 'Sellers protection', value: 'High Wealth', delta: '', icon: ShieldCheck },
             { label: 'Investor opportunities', value: '$840M', delta: '', icon: Scale },
-            { label: 'Trust Guranteee', value: '', delta: '', icon: Globe },
+            { label: 'Trust Guarantee', value: 'Sovereign', delta: '', icon: Globe },
             { label: 'Value Optimization', value: 'Maximized', delta: '', icon: Activity },
           ].map((stat, i) => (
             <div key={i} className="glass p-8 sm:p-10 rounded-[2.5rem] border-[#D4AF37]/10 group transition-all hover:border-[#D4AF37]/40 shadow-xl">
               <div className="flex justify-between items-start mb-6">
-                <div className="p-3 bg-[#D4AF37]/5 rounded-xl border border-[#D4AF37]/10">
-                  <stat.icon size={22} className="text-[#D4AF37]" />
+                <div className="p-4 bg-[#D4AF37]/5 rounded-2xl border border-[#D4AF37]/10">
+                  <stat.icon size={32} className="text-[#D4AF37]" />
                 </div>
                 <span className="text-[11px] font-bold text-white mono tracking-tighter">{stat.delta}</span>
               </div>
