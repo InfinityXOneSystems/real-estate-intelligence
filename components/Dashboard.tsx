@@ -11,10 +11,10 @@ interface DashboardProps {
 const Dashboard: React.FC<DashboardProps> = ({ leads, onSelectLead }) => {
   const primeLead = leads[0];
 
-  const priceDisplayMap: Record<string, string> = {
-    '1': '900k 3 days left',
-    '2': '1.1m 6 days left',
-    '3': '650k 1 day left'
+  const priceDisplayMap: Record<string, { price: string; days: string }> = {
+    '1': { price: '$900,000', days: '3 DAYS LEFT' },
+    '2': { price: '$1,100,000', days: '6 DAYS LEFT' },
+    '3': { price: '$650,000', days: '1 DAY LEFT' }
   };
 
   return (
@@ -108,6 +108,8 @@ const Dashboard: React.FC<DashboardProps> = ({ leads, onSelectLead }) => {
             const buttonText = lead.id === '1' 
               ? "SELL FAST AND SAFE" 
               : "Intelligent Transparency";
+            
+            const priceData = priceDisplayMap[lead.id] || { price: '$0', days: 'PENDING' };
 
             return (
               <div 
@@ -136,9 +138,12 @@ const Dashboard: React.FC<DashboardProps> = ({ leads, onSelectLead }) => {
                         {lead.id === '1' ? 'Disposition Protocol' : 'Acquisition Protocol'}
                       </p>
                     </div>
-                    <div className="text-right flex-shrink-0">
-                      <div className="text-lg sm:text-xl font-black tracking-tighter text-gradient-gold">
-                        {priceDisplayMap[lead.id]}
+                    <div className="text-right flex-shrink-0 flex flex-col items-end gap-2">
+                      <div className="text-lg sm:text-2xl font-black tracking-tighter text-gradient-gold">
+                        {priceData.price}
+                      </div>
+                      <div className="text-[10px] text-white mono font-medium uppercase tracking-[0.2em] opacity-80">
+                        {priceData.days}
                       </div>
                     </div>
                   </div>
