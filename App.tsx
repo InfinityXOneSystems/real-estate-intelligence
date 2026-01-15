@@ -61,7 +61,7 @@ const INITIAL_LEADS: PropertyLead[] = [
     nexusScore: 91,
     motivationDelta: 0.88,
     healthScore: 0.31,
-    distressMarkers: ['Strategic Re-Entry Asset', 'High-Alpha Conversion'],
+    distressMarkers: ['Strategic Re-Entry Asset', 'High-Yield Conversion'],
     ownerInfo: {
       name: 'Marcus Chen',
       financialStrain: 'Time-Critical Disposition',
@@ -94,37 +94,37 @@ const App: React.FC = () => {
         return <VoiceAgent />;
       case AppView.FINANCIAL_ENGINE:
         return (
-          <div className="p-12 sm:p-24 text-center pb-32">
-            <h2 className="text-4xl sm:text-7xl font-black text-white mb-6 tracking-tighter uppercase">Buy <span className="text-gradient-gold">Analytics</span></h2>
-            <p className="text-zinc-500 text-lg font-medium max-w-lg mx-auto mb-16 uppercase tracking-[0.2em]">Predictive Modelling Engine</p>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 max-w-5xl mx-auto">
-              <div className="bg-black/80 p-12 rounded-[3rem] border border-[#D4AF37]/20 shadow-2xl">
-                <div className="text-5xl font-black text-gradient-gold mb-4 tracking-tighter">32.4%</div>
-                <div className="text-[12px] mono uppercase tracking-[0.4em] text-zinc-500 font-bold">Avg Strategic IRR</div>
+          <div className="p-8 sm:p-12 text-center pb-32">
+            <h2 className="text-3xl sm:text-6xl font-black text-white mb-6 tracking-tighter uppercase">Buy <span className="text-gradient-gold">Analytics</span></h2>
+            <p className="text-zinc-500 text-sm sm:text-base font-medium max-w-lg mx-auto mb-12 uppercase tracking-[0.2em]">Predictive Modelling Engine</p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-4xl mx-auto">
+              <div className="bg-black/80 p-8 rounded-[2rem] border border-[#D4AF37]/20 shadow-2xl">
+                <div className="text-4xl font-black text-gradient-gold mb-2 tracking-tighter">32.4%</div>
+                <div className="text-[10px] mono uppercase tracking-[0.3em] text-zinc-500 font-bold">Avg Strategic IRR</div>
               </div>
-              <div className="bg-black/80 p-12 rounded-[3rem] border border-[#D4AF37]/20 shadow-2xl">
-                <div className="text-5xl font-black text-white mb-4 tracking-tighter">12.1x</div>
-                <div className="text-[12px] mono uppercase tracking-[0.4em] text-zinc-500 font-bold">Buy Multiplier</div>
+              <div className="bg-black/80 p-8 rounded-[2rem] border border-[#D4AF37]/20 shadow-2xl">
+                <div className="text-4xl font-black text-white mb-2 tracking-tighter">12.1x</div>
+                <div className="text-[10px] mono uppercase tracking-[0.3em] text-zinc-500 font-bold">Buy Multiplier</div>
               </div>
             </div>
           </div>
         );
       case AppView.LEGAL_HUB:
         return (
-          <div className="p-12 sm:p-24 max-w-5xl mx-auto pb-32">
-             <h2 className="text-4xl sm:text-7xl font-black tracking-tighter mb-4 leading-none uppercase text-white">Legal <span className="text-gradient-gold">Chat</span></h2>
-             <p className="text-zinc-500 text-lg font-medium mb-16 uppercase tracking-[0.2em]">Automated Strategic Sell Documentation</p>
-             <div className="bg-black border border-[#D4AF37]/20 p-12 rounded-[3rem] shadow-3xl opacity-60">
-                <div className="flex items-center gap-6 mb-10">
-                   <div className="w-16 h-16 bg-[#D4AF37]/10 rounded-2xl flex items-center justify-center border border-[#D4AF37]/20">
-                      <div className="w-3 h-3 rounded-full bg-[#D4AF37] animate-pulse" />
+          <div className="p-8 sm:p-12 max-w-4xl mx-auto pb-32">
+             <h2 className="text-3xl sm:text-6xl font-black tracking-tighter mb-4 leading-none uppercase text-white">Legal <span className="text-gradient-gold">Chat</span></h2>
+             <p className="text-zinc-500 text-sm sm:text-base font-medium mb-12 uppercase tracking-[0.2em]">Automated Strategic Sell Documentation</p>
+             <div className="bg-black border border-[#D4AF37]/20 p-8 sm:p-10 rounded-[2rem] shadow-3xl opacity-60">
+                <div className="flex items-center gap-5 mb-8">
+                   <div className="w-14 h-14 bg-[#D4AF37]/10 rounded-2xl flex items-center justify-center border border-[#D4AF37]/20">
+                      <div className="w-2.5 h-2.5 rounded-full bg-[#D4AF37] animate-pulse" />
                    </div>
                    <div>
-                      <div className="text-xl font-black uppercase tracking-[0.3em] text-white">Hub Standby</div>
-                      <div className="text-sm mono text-zinc-500">Verification Required</div>
+                      <div className="text-lg font-black uppercase tracking-[0.2em] text-white">Hub Standby</div>
+                      <div className="text-xs mono text-zinc-500">Verification Required</div>
                    </div>
                 </div>
-                <div className="h-48 bg-white/5 rounded-[2rem] border border-white/5 flex items-center justify-center text-xs mono text-zinc-600 tracking-[0.5em] uppercase">
+                <div className="h-40 bg-white/5 rounded-2xl border border-white/5 flex items-center justify-center text-[10px] mono text-zinc-600 tracking-[0.4em] uppercase">
                    Protocol Identification Required
                 </div>
              </div>
