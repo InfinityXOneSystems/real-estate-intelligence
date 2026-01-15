@@ -95,8 +95,8 @@ const App: React.FC = () => {
       case AppView.FINANCIAL_ENGINE:
         return (
           <div className="p-12 sm:p-24 text-center pb-32">
-            <h2 className="text-4xl sm:text-7xl font-black text-white mb-6 tracking-tighter uppercase">Yield <span className="text-gradient-gold">Analytics</span></h2>
-            <p className="text-zinc-500 text-lg font-medium max-w-lg mx-auto mb-16 uppercase tracking-[0.2em]">Tier-1 Predictive Modelling Engine</p>
+            <h2 className="text-4xl sm:text-7xl font-black text-white mb-6 tracking-tighter uppercase">Buy <span className="text-gradient-gold">Analytics</span></h2>
+            <p className="text-zinc-500 text-lg font-medium max-w-lg mx-auto mb-16 uppercase tracking-[0.2em]">Predictive Modelling Engine</p>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 max-w-5xl mx-auto">
               <div className="bg-black/80 p-12 rounded-[3rem] border border-[#D4AF37]/20 shadow-2xl">
                 <div className="text-5xl font-black text-gradient-gold mb-4 tracking-tighter">32.4%</div>
@@ -104,7 +104,7 @@ const App: React.FC = () => {
               </div>
               <div className="bg-black/80 p-12 rounded-[3rem] border border-[#D4AF37]/20 shadow-2xl">
                 <div className="text-5xl font-black text-white mb-4 tracking-tighter">12.1x</div>
-                <div className="text-[12px] mono uppercase tracking-[0.4em] text-zinc-500 font-bold">Yield Multiplier</div>
+                <div className="text-[12px] mono uppercase tracking-[0.4em] text-zinc-500 font-bold">Buy Multiplier</div>
               </div>
             </div>
           </div>
@@ -112,8 +112,8 @@ const App: React.FC = () => {
       case AppView.LEGAL_HUB:
         return (
           <div className="p-12 sm:p-24 max-w-5xl mx-auto pb-32">
-             <h2 className="text-4xl sm:text-7xl font-black tracking-tighter mb-4 leading-none uppercase text-white">Legal <span className="text-gradient-gold">Nexus</span></h2>
-             <p className="text-zinc-500 text-lg font-medium mb-16 uppercase tracking-[0.2em]">Automated Strategic Asset Documentation</p>
+             <h2 className="text-4xl sm:text-7xl font-black tracking-tighter mb-4 leading-none uppercase text-white">Legal <span className="text-gradient-gold">Chat</span></h2>
+             <p className="text-zinc-500 text-lg font-medium mb-16 uppercase tracking-[0.2em]">Automated Strategic Sell Documentation</p>
              <div className="bg-black border border-[#D4AF37]/20 p-12 rounded-[3rem] shadow-3xl opacity-60">
                 <div className="flex items-center gap-6 mb-10">
                    <div className="w-16 h-16 bg-[#D4AF37]/10 rounded-2xl flex items-center justify-center border border-[#D4AF37]/20">
@@ -121,7 +121,7 @@ const App: React.FC = () => {
                    </div>
                    <div>
                       <div className="text-xl font-black uppercase tracking-[0.3em] text-white">Hub Standby</div>
-                      <div className="text-sm mono text-zinc-500">Tier-1 Verification Required</div>
+                      <div className="text-sm mono text-zinc-500">Verification Required</div>
                    </div>
                 </div>
                 <div className="h-48 bg-white/5 rounded-[2rem] border border-white/5 flex items-center justify-center text-xs mono text-zinc-600 tracking-[0.5em] uppercase">

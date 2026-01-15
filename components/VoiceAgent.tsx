@@ -193,7 +193,7 @@ const VoiceAgent: React.FC = () => {
       <div className="bg-black border border-white/10 rounded-3xl p-8 min-h-[250px] flex flex-col justify-end gap-4 font-mono text-sm shadow-xl">
         <h4 className="text-white uppercase tracking-[0.4em] mb-4 border-b border-white/5 pb-4 flex justify-between font-black text-xs">
           <span>Communication Feed</span>
-          <span className="text-[#D4AF37]">Tier-1 Link</span>
+          <span className="text-[#D4AF37]">Link</span>
         </h4>
         {transcripts.map((t, i) => (
           <div key={i} className={`p-4 rounded-2xl ${t.startsWith('AI') ? 'text-[#D4AF37] bg-[#D4AF37]/5 border border-[#D4AF37]/10' : 'text-white bg-white/5'}`}>

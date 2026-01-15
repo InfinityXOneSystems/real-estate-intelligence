@@ -41,7 +41,7 @@ const PropertyAnalyzer: React.FC = () => {
             <div className="p-2 bg-[#D4AF37]/10 rounded-lg">
               <Camera size={20} className="text-[#D4AF37]" />
             </div>
-            <span className="text-[10px] font-bold text-white uppercase tracking-[0.4em] mono">Asset Vision Core</span>
+            <span className="text-[10px] font-bold text-white uppercase tracking-[0.4em] mono">Sell Vision Core</span>
           </div>
           <h2 className="text-4xl sm:text-7xl font-black tracking-tighter leading-none uppercase text-white">Strategic <span className="text-gradient-gold">Scan</span></h2>
         </div>
@@ -51,7 +51,7 @@ const PropertyAnalyzer: React.FC = () => {
             <MapPin className="absolute left-4 top-1/2 -translate-y-1/2 text-white/50 group-focus-within:text-[#D4AF37] transition-colors" size={16} />
             <input
               type="text"
-              placeholder="Asset Address..."
+              placeholder="Sell Address..."
               className="bg-black border border-[#D4AF37]/20 rounded-xl pl-10 pr-6 py-4 text-sm w-full sm:w-80 focus:border-[#D4AF37] outline-none transition-all font-semibold text-white placeholder:text-white/30"
               value={address}
               onChange={(e) => setAddress(e.target.value)}
@@ -104,7 +104,7 @@ const PropertyAnalyzer: React.FC = () => {
             <div className="w-20 h-20 border-t-2 border-[#D4AF37] rounded-full animate-spin shadow-[0_0_30px_rgba(212,175,55,0.4)]" />
             <div className="text-center">
               <p className="text-3xl font-black tracking-tighter italic text-gradient-gold">INGESTING INTELLIGENCE</p>
-              <p className="text-white mono font-bold tracking-[0.4em] uppercase mt-4 animate-pulse text-xs">Tier-1 Vision Scraper Active</p>
+              <p className="text-white mono font-bold tracking-[0.4em] uppercase mt-4 animate-pulse text-xs">Vision Scraper Active</p>
             </div>
           </div>
         </div>
@@ -119,7 +119,7 @@ const PropertyAnalyzer: React.FC = () => {
                 <div className="absolute top-6 left-6">
                   <div className="glass px-4 py-2 rounded-xl border-[#D4AF37]/50 flex items-center gap-3">
                     <div className="w-2 h-2 rounded-full bg-[#D4AF37] animate-pulse" />
-                    <span className="text-[11px] font-bold text-white mono uppercase tracking-[0.2em]">Asset Identified</span>
+                    <span className="text-[11px] font-bold text-white mono uppercase tracking-[0.2em]">Sell Identified</span>
                   </div>
                 </div>
               </div>

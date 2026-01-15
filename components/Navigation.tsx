@@ -11,10 +11,10 @@ interface NavigationProps {
 const Navigation: React.FC<NavigationProps> = ({ currentView, setView }) => {
   const items = [
     { id: AppView.DASHBOARD, label: 'Market Intelligence', icon: LayoutDashboard },
-    { id: AppView.PROPERTY_ANALYSIS, label: 'Asset Vision', icon: Camera },
+    { id: AppView.PROPERTY_ANALYSIS, label: 'Sell Vision', icon: Camera },
     { id: AppView.VOICE_AGENT, label: 'Negotiation Core', icon: Mic2 },
-    { id: AppView.FINANCIAL_ENGINE, label: 'Yield Analytics', icon: BarChart3 },
-    { id: AppView.LEGAL_HUB, label: 'Nexus Legal', icon: ShieldCheck },
+    { id: AppView.FINANCIAL_ENGINE, label: 'Buy Analytics', icon: BarChart3 },
+    { id: AppView.LEGAL_HUB, label: 'Chat Legal', icon: ShieldCheck },
   ];
 
   return (
@@ -28,7 +28,7 @@ const Navigation: React.FC<NavigationProps> = ({ currentView, setView }) => {
             </div>
             <div>
               <h1 className="font-extrabold tracking-tighter text-xl leading-none text-white">RE-IQ 360</h1>
-              <p className="text-[9px] text-white uppercase tracking-widest mt-1.5 font-bold">Elite Intelligence v4.2</p>
+              <p className="text-[9px] text-white uppercase tracking-widest mt-1.5 font-bold">Intelligence v4.2</p>
             </div>
           </div>
         </div>
